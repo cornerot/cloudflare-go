@@ -43,6 +43,7 @@ func (api *API) DNSRecords(zoneID string, rr DNSRecord) ([]DNSRecord, error) {
 	if rr.Content != "" {
 		v.Set("content", rr.Content)
 	}
+	v.Set("per_page", 100)
 	var query string
 	if len(v) > 0 {
 		query = "?" + v.Encode()
